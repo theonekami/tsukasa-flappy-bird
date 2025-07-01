@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://daqsux0dllnvy"]
+
+[ext_resource type="Script" uid="uid://c4s787jjwgu5k" path="res://tsukasa.gd" id="1_kpbq0"]
+[ext_resource type="Texture2D" uid="uid://dey7b2kgwkaks" path="res://Art/stamp0718.png" id="2_patfn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_me7ao"]
+size = Vector2(61, 56)
+
+[node name="Tsukasa" type="CharacterBody2D"]
+position = Vector2(381, 418)
+script = ExtResource("1_kpbq0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.425526, 0.425526)
+texture = ExtResource("2_patfn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(18, 25)
+shape = SubResource("RectangleShape2D_me7ao")
