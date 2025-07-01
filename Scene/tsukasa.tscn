@@ -1,19 +1,55 @@
-[gd_scene load_steps=4 format=3 uid="uid://daqsux0dllnvy"]
+[gd_scene load_steps=8 format=3 uid="uid://daqsux0dllnvy"]
 
-[ext_resource type="Script" uid="uid://c4s787jjwgu5k" path="res://tsukasa.gd" id="1_kpbq0"]
-[ext_resource type="Texture2D" uid="uid://dey7b2kgwkaks" path="res://Art/stamp0718.png" id="2_patfn"]
+[ext_resource type="Texture2D" uid="uid://b3nu8tqqsvleb" path="res://Art/Tsuakasa Pics/tsukasa_sprite_sheet.png" id="2_kpbq0"]
+
+[sub_resource type="GDScript" id="GDScript_ofp6q"]
+script/source = "extends CharacterBody2D
+"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wgrof"]
+atlas = ExtResource("2_kpbq0")
+region = Rect2(0, 288, 288, 288)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i1m08"]
+atlas = ExtResource("2_kpbq0")
+region = Rect2(288, 288, 288, 288)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gg2a5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wgrof")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i1m08")
+}],
+"loop": true,
+"name": &"Running",
+"speed": 6.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_me7ao"]
-size = Vector2(61, 56)
+size = Vector2(91.8125, 74.125)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ofp6q"]
 
 [node name="Tsukasa" type="CharacterBody2D"]
-position = Vector2(381, 418)
-script = ExtResource("1_kpbq0")
+position = Vector2(222, 523)
+script = SubResource("GDScript_ofp6q")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.425526, 0.425526)
-texture = ExtResource("2_patfn")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_gg2a5")
+animation = &"Running"
+autoplay = "Running"
+frame = 1
+frame_progress = 0.82155
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(18, 25)
+position = Vector2(3, 71)
 shape = SubResource("RectangleShape2D_me7ao")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-1, 111)
+shape = SubResource("WorldBoundaryShape2D_ofp6q")
