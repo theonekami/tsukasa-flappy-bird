@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_me7ao"]
 size = Vector2(126, 108)
 
-[node name="Tsukasa" type="Node2D"]
+[node name="Tsukasa" type="CharacterBody2D"]
 position = Vector2(172, 584)
 script = ExtResource("1_me7ao")
 
