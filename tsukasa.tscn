@@ -7,7 +7,7 @@
 size = Vector2(126, 108)
 
 [node name="Tsukasa" type="Node2D"]
-position = Vector2(227, 135)
+position = Vector2(172, 584)
 script = ExtResource("1_me7ao")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
